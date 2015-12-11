@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Drink Water</string>
+    <string name="action_settings">Settings</string>
+    <string name="you_drink">You drink</string>
+
+    <string name="ml0">0/2L</string>
+    <string name="ml200">200ml/2L</string>
+    <string name="ml400">400ml/2L</string>
+    <string name="ml600">600ml/2L</string>
+    <string name="ml800">800ml/2L</string>
+    <string name="ml1000">1L/2L</string>
+    <string name="ml1200">1.2L/2L</string>
+    <string name="ml1400">1.4L/2L</string>
+    <string name="ml1600">1.6L/2L</string>
+    <string name="ml1800">1.8L/2L</string>
+    <string name="ml2000">2L/2L</string>
+    <string name="full">"FULL"</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
