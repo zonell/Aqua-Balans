@@ -2,7 +2,9 @@ package com.example.alex.myapplication.support;
 
 import com.example.alex.myapplication.R;
 
-public class BottleSize {
+public class BottleParams {
+    public static final int FULL = R.string.full;
+    public static final int EMPTY = R.string.ml0;
     public static int count = 0;
 
     public static int[] bottleImg = {
