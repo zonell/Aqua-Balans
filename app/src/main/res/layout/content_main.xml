@@ -18,19 +18,19 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:src="@drawable/empty"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imgBottle" />
+        android:id="@+id/imgBottle"
+        android:scaleType="centerInside"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fab"
-        fab:fab_addButtonColorNormal="@color/colorPrimary"
-        fab:fab_addButtonColorPressed="@color/colorPrimaryDark"
-        fab:fab_addButtonPlusIconColor="#ffffff"
+        fab:fab_addButtonColorNormal="@color/colorAccent"
+        fab:fab_addButtonPlusIconColor="@color/white"
         app:fab_labelStyle="@style/menu_label_style"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -41,8 +41,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn400ml"
             android:src="@drawable/beer"
-            fab:fab_colorNormal = "#00aaff"
-            fab:fab_colorPressed = "#c800aaff"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="@color/colorPrimaryDark"
             fab:fab_title="Drink 400ml"
             fab:fabSize="normal"
             android:onClick="onClick"/>
@@ -52,8 +52,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn200ml"
             android:src="@drawable/beer"
-            fab:fab_colorNormal = "#00aaff"
-            fab:fab_colorPressed = "#c800aaff"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="@color/colorPrimaryDark"
             fab:fab_title="Drink 200ml"
             fab:fabSize="normal"
             android:onClick="onClick"/>
@@ -63,24 +63,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnClear"
             android:src="@drawable/clear"
-            fab:fab_colorNormal = "#00aaff"
-            fab:fab_colorPressed = "#c800aaff"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="@color/colorPrimaryDark"
             fab:fab_title="Clear"
             fab:fabSize="normal"
             android:onClick="onClick"/>
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
-
-    <!--Add a new version-->
-    <!--<com.getbase.floatingactionbutton.FloatingActionButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:src="@drawable/task"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:id="@+id/view"-->
-        <!--app:fab_colorNormal="@color/colorPrimary"-->
-        <!--app:fab_colorPressed="@color/colorPrimaryDark"-->
-        <!--fab:fab_addButtonPlusIconColor="#ffffff"/>-->
 
     <TextView
         android:layout_width="wrap_content"

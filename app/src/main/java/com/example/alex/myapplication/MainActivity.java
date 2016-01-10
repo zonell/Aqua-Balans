@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     BottleParams.count++;
                     fillBottle();
                 } else if (BottleParams.count == BottleParams.bottleImg.length-1){
-                    Toast.makeText(getApplicationContext(),"Bottle empty!!!Drink little", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.empty, Toast.LENGTH_SHORT).show();
                 } else {
                     fullBottle();
                 }
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void fullBottle() {
         tvInfo.setText(BottleParams.FULL);
-        Toast.makeText(getApplicationContext(),"FULL BOTTLE =)", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),R.string.full_bottle, Toast.LENGTH_SHORT).show();
     }
 
     private void fillBottle() {
