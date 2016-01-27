@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.example.alex.myapplication"
+        applicationId "net.validcat.st.wb"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
@@ -27,3 +27,5 @@ dependencies {
     compile 'com.getbase:floatingactionbutton:1.8.0'
     compile 'com.android.support:support-v13:23.0.1'
 }
+
+
