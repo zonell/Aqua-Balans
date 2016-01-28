@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences sPref;
     private ImageView imgBottle;
+    private ImageView imgFull;
     private TextView tvInfo;
 
     @Override
@@ -23,11 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvInfo = (TextView) findViewById(R.id.tvInfo);
-        imgBottle = (ImageView) findViewById(R.id.imgBottle);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        initUI();
         loadDate();
     }
 
@@ -35,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         saveDate();
         super.onDestroy();
+    }
+
+    private void initUI(){
+        tvInfo = (TextView) findViewById(R.id.tvInfo);
+        imgBottle = (ImageView) findViewById(R.id.imgBottle);
+        imgFull = (ImageView) findViewById(R.id.imgFull);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     public void onClick(View view) {
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     BottleParams.count++;
                     fillBottle();
                 } else if (BottleParams.count == BottleParams.bottleImg.length-1){
-                    Toast.makeText(getApplicationContext(), R.string.empty, Toast.LENGTH_SHORT).show();
+                    fillBottle();
                 } else {
                     fullBottle();
                 }
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 BottleParams.count = 0;
                 tvInfo.setText(BottleParams.EMPTY);
                 imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
+                imgFull.setImageDrawable(null);
                 saveDate();
                 break;
         }
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void fullBottle() {
         tvInfo.setText(BottleParams.FULL);
+        imgFull.setImageResource(R.drawable.ic_full);
         Toast.makeText(getApplicationContext(), R.string.full_bottle, Toast.LENGTH_SHORT).show();
     }
 
@@ -74,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
         tvInfo.setText(BottleParams.bottleTxt[BottleParams.count]);
         imgBottle.setImageDrawable(getResources().getDrawable(BottleParams.bottleImg[BottleParams.count]));
         BottleParams.count++;
+        if (BottleParams.count == BottleParams.bottleImg.length){
+            fullBottle();
+        }
         saveDate();
     }
 

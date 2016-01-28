@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Drink Water</string>
+    <string name="app_name">Aqua Balance</string>
     <string name="action_settings">Settings</string>
     <string name="you_drink">You drink</string>
 
@@ -16,8 +16,7 @@
     <string name="ml2000">2L/2L</string>
     <string name="full">"FULL"</string>
 
-    <string name="empty">Bottle empty!!!Drink little</string>
-    <string name="full_bottle">FULL BOTTLE =)</string>
+    <string name="full_bottle">Drunk daily rate</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
