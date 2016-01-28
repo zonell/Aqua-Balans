@@ -58,6 +58,17 @@
             fab:fab_title="Drink 200ml" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:src="@drawable/ic_back"
+            fab:fabSize="normal"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="@color/colorPrimaryDark"
+            fab:fab_title="Cancel" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

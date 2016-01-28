@@ -12,7 +12,8 @@ import android.widget.Toast;
 import net.validcat.st.wb.support.BottleParams;
 
 public class MainActivity extends AppCompatActivity {
-    final static private String COUNT_BOTTLE = "count_bottle";
+    private static final String COUNT_BOTTLE = "count_bottle";
+    private static final String COUNT_CANCEL = "count_cancel";
 
     private SharedPreferences sPref;
     private ImageView imgBottle;
@@ -50,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     fullBottle();
                 }
+                BottleParams.count_cancel = BottleParams.CANCEL_200_ML;
                 break;
             case R.id.btn400ml:
-                if (BottleParams.count < BottleParams.bottleImg.length && BottleParams.count != BottleParams.bottleImg.length-1){
+                if (BottleParams.count < BottleParams.bottleImg.length
+                        && BottleParams.count != BottleParams.bottleImg.length-1){
                     BottleParams.count++;
                     fillBottle();
                 } else if (BottleParams.count == BottleParams.bottleImg.length-1){
@@ -60,15 +63,34 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     fullBottle();
                 }
+                BottleParams.count_cancel = BottleParams.CANCEL_400_ML;
+                break;
+            case R.id.btnCancel:
+                cancel();
                 break;
             case R.id.btnClear:
-                BottleParams.count = 0;
-                tvInfo.setText(BottleParams.EMPTY);
-                imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
-                imgFull.setImageDrawable(null);
-                saveDate();
+                clear();
                 break;
         }
+    }
+
+    private void cancel(){
+        if (BottleParams.count - BottleParams.count_cancel < 0){
+            clear();
+        }
+        else {
+            BottleParams.count = BottleParams.count - BottleParams.count_cancel;
+            fillBottle();
+            BottleParams.count_cancel = 1;
+            deleteImgFull();
+        }
+    }
+
+    private void clear(){
+        BottleParams.count = 0;
+        tvInfo.setText(BottleParams.EMPTY);
+        imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
+        deleteImgFull();
     }
 
     private void fullBottle() {
@@ -79,7 +101,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void fillBottle() {
         tvInfo.setText(BottleParams.bottleTxt[BottleParams.count]);
-        imgBottle.setImageDrawable(getResources().getDrawable(BottleParams.bottleImg[BottleParams.count]));
+        imgBottle.setImageDrawable(getResources().getDrawable(
+                BottleParams.bottleImg[BottleParams.count]));
         BottleParams.count++;
         if (BottleParams.count == BottleParams.bottleImg.length){
             fullBottle();
@@ -91,19 +114,26 @@ public class MainActivity extends AppCompatActivity {
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = sPref.edit();
         editor.putInt(COUNT_BOTTLE, BottleParams.count);
+        editor.putInt(COUNT_CANCEL, BottleParams.count_cancel);
         editor.apply();
     }
 
     public void loadDate(){
         sPref = getPreferences(MODE_PRIVATE);
         BottleParams.count = sPref.getInt(COUNT_BOTTLE, 0);
+        BottleParams.count_cancel = sPref.getInt(COUNT_CANCEL, 1);
 
         if (BottleParams.count != 0){
-            imgBottle.setImageDrawable(getResources().getDrawable(BottleParams.bottleImg[BottleParams.count - 1]));
+            imgBottle.setImageDrawable(getResources().getDrawable(
+                    BottleParams.bottleImg[BottleParams.count - 1]));
             tvInfo.setText(BottleParams.bottleTxt[BottleParams.count - 1]);
         } else {
             imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
             tvInfo.setText(R.string.ml0);
         }
+    }
+
+    private void deleteImgFull(){
+        imgFull.setImageDrawable(null);
     }
 }

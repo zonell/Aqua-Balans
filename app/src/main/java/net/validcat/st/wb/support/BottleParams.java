@@ -3,9 +3,12 @@ package net.validcat.st.wb.support;
 import net.validcat.st.wb.R;
 
 public class BottleParams {
+    public static final int CANCEL_200_ML = 2;
+    public static final int CANCEL_400_ML = 3;
     public static final int FULL = R.string.full;
     public static final int EMPTY = R.string.ml0;
     public static int count = 0;
+    public static int count_cancel = 1;
 
     public static int[] bottleImg = {
             R.drawable.ml200,
