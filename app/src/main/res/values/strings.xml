@@ -14,10 +14,12 @@
     <string name="ml1600">1.6L/2L</string>
     <string name="ml1800">1.8L/2L</string>
     <string name="ml2000">2L/2L</string>
-    <string name="full">"FULL"</string>
+    <string name="full">Daily rate</string>
 
     <string name="full_bottle">Drunk daily rate</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drink_400ml">Drink 400ml</string>
+    <string name="drink_200ml">Drink 200ml</string>
+    <string name="cancel">Cancel</string>
+    <string name="clear">Clear</string>
 </resources>

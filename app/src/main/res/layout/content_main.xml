@@ -44,7 +44,7 @@
             fab:fabSize="normal"
             fab:fab_colorNormal="@color/colorPrimary"
             fab:fab_colorPressed="@color/colorPrimaryDark"
-            fab:fab_title="Drink 400ml" />
+            fab:fab_title="@string/drink_400ml" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn200ml"
@@ -55,7 +55,7 @@
             fab:fabSize="normal"
             fab:fab_colorNormal="@color/colorPrimary"
             fab:fab_colorPressed="@color/colorPrimaryDark"
-            fab:fab_title="Drink 200ml" />
+            fab:fab_title="@string/drink_200ml" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnCancel"
@@ -66,7 +66,7 @@
             fab:fabSize="normal"
             fab:fab_colorNormal="@color/colorPrimary"
             fab:fab_colorPressed="@color/colorPrimaryDark"
-            fab:fab_title="Cancel" />
+            fab:fab_title="@string/cancel" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnClear"
@@ -77,7 +77,7 @@
             fab:fabSize="normal"
             fab:fab_colorNormal="@color/colorPrimary"
             fab:fab_colorPressed="@color/colorPrimaryDark"
-            fab:fab_title="Clear" />
+            fab:fab_title="@string/clear" />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
