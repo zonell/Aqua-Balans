@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onStop() {
+        super.onStop();
         saveDate();
-        super.onDestroy();
     }
 
     private void initUI(){
@@ -127,9 +127,17 @@ public class MainActivity extends AppCompatActivity {
             imgBottle.setImageDrawable(getResources().getDrawable(
                     BottleParams.bottleImg[BottleParams.count - 1]));
             tvInfo.setText(BottleParams.bottleTxt[BottleParams.count - 1]);
-        } else {
+        }
+        else {
             imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
             tvInfo.setText(R.string.ml0);
+        }
+
+        if (BottleParams.count == BottleParams.bottleTxt.length && BottleParams.count != 0){
+            imgBottle.setImageDrawable(getResources().getDrawable(
+                    BottleParams.bottleImg[BottleParams.count - 1]));
+            imgFull.setImageResource(R.drawable.ic_full);
+            tvInfo.setText(R.string.full);
         }
     }
 
