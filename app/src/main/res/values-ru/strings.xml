@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Aqua Balance</string>
     <string name="action_settings">Настройки</string>
-    <string name="full">Дневную норму</string>
+    <string name="full">дневную норму</string>
     <string name="full_bottle">Вы выпили дневную норму</string>
     <string name="you_drink">Вы выпили</string>
     <string name="cancel">Отмена</string>

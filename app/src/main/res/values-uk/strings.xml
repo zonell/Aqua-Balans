@@ -4,7 +4,7 @@
     <string name="action_settings">Налаштування</string>
     <string name="full_bottle">Ви випили денну норму</string>
     <string name="you_drink">Ви випили</string>
-    <string name="full">Денну норму</string>
+    <string name="full">денну норму</string>
     <string name="cancel">Вiдмiнити</string>
     <string name="clear">Очистити</string>
     <string name="drink_200ml">Випити 200мл</string>
