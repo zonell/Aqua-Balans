@@ -17,9 +17,19 @@
     <string name="full">daily rate</string>
 
     <string name="full_bottle">Drunk daily rate</string>
+    <string name="keep_calm">Keep calm and drink water</string>
 
     <string name="drink_400ml">Drink 400ml</string>
     <string name="drink_200ml">Drink 200ml</string>
     <string name="cancel">Cancel</string>
     <string name="clear">Clear</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    
+    <string name="progress">Progress</string>
+    <string name="statistics">Statistics</string>
+    <string name="news">News</string>
+    <string name="Settings">Settings</string>
+    <string name="give_feedback">Give feedback</string>
 </resources>

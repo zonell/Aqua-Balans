@@ -9,4 +9,9 @@
     <string name="clear">Очистити</string>
     <string name="drink_200ml">Випити 200мл</string>
     <string name="drink_400ml">Випити 400мл</string>
+    <string name="navigation_drawer_open"></string>
+    <string name="news">Новини</string>
+    <string name="progress">Прогрес</string>
+    <string name="statistics">Статистика</string>
+    <string name="give_feedback">Залишити вiдгук</string>
 </resources>

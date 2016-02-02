@@ -8,4 +8,8 @@
     <string name="full">tagesrate</string>
     <string name="full_bottle">Trinken tagesrate</string>
     <string name="you_drink">Du trinkst</string>
+    <string name="news">Nachrichten</string>
+    <string name="progress">Progress</string>
+    <string name="statistics">Statistiken</string>
+    <string name="give_feedback"></string>
 </resources>

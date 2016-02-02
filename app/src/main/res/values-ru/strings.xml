@@ -9,4 +9,8 @@
     <string name="clear">Очистить</string>
     <string name="drink_200ml">Выпить 200мл</string>
     <string name="drink_400ml">Выпить 400мл</string>
+    <string name="news">Новости</string>
+    <string name="progress">Прогресс</string>
+    <string name="statistics">Статистика</string>
+    <string name="give_feedback">Оставить отзыв</string>
 </resources>

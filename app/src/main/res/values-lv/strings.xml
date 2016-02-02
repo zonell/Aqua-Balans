@@ -8,4 +8,8 @@
     <string name="drink_400ml">Dzert 400ml</string>
     <string name="full">dienas likme</string>
     <string name="full_bottle">Dzert dienas likme</string>
+    <string name="statistics">Statistika</string>
+    <string name="progress">Progress</string>
+    <string name="news">Jaunumi</string>
+    <string name="give_feedback">Dot atsauksmes</string>
 </resources>
