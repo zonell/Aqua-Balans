@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aqua Balance</string>
+    <string name="clear">Klar</string>
+    <string name="cancel">Stornieren</string>
+    <string name="drink_200ml">Trinken 200ml</string>
+    <string name="drink_400ml">Trinken 400ml</string>
+    <string name="full">tagesrate</string>
+    <string name="full_bottle">Trinken tagesrate</string>
+    <string name="you_drink">Du trinkst</string>
+</resources>

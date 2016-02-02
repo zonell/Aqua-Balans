@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aqua Balance</string>
+    <string name="cancel">Atcelt</string>
+    <string name="you_drink">jūs dzert</string>
+    <string name="clear">Skaidrs</string>
+    <string name="drink_200ml">Dzert 200ml</string>
+    <string name="drink_400ml">Dzert 400ml</string>
+    <string name="full">dienas likme</string>
+    <string name="full_bottle">Dzert dienas likme</string>
+</resources>
