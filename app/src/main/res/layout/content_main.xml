@@ -86,6 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
         android:layout_toLeftOf="@+id/imgBottle"
         android:layout_toStartOf="@+id/imgBottle"
         android:text="@string/you_drink" />

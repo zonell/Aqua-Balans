@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_progress"
+            android:icon="@drawable/ic_progress"
+            android:title="@string/progress"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_statistics"
+            android:icon="@drawable/ic_statistics"
+            android:title="@string/statistics" />
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_news"
+            android:title="@string/news" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/Settings" />
+            <item
+                android:id="@+id/nav_give_feedback"
+                android:icon="@drawable/ic_give_feedback"
+                android:title="@string/give_feedback" />
+        </menu>
+    </item>
+
+</menu>
