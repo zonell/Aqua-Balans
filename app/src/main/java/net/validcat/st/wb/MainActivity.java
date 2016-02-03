@@ -82,9 +82,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-
     }
 
     public void onClick(View view) {
@@ -125,7 +122,7 @@ public class MainActivity extends AppCompatActivity
         else {
             BottleParams.count = BottleParams.count - BottleParams.count_cancel;
             fillBottle();
-            BottleParams.count_cancel = 1;
+            BottleParams.count_cancel = BottleParams.COUNT_CANCEL;
             deleteImgFull();
         }
     }
@@ -165,7 +162,7 @@ public class MainActivity extends AppCompatActivity
     public void loadDate(){
         sPref = getPreferences(MODE_PRIVATE);
         BottleParams.count = sPref.getInt(COUNT_BOTTLE, 0);
-        BottleParams.count_cancel = sPref.getInt(COUNT_CANCEL, 1);
+        BottleParams.count_cancel = sPref.getInt(COUNT_CANCEL, BottleParams.COUNT_CANCEL);
 
         if (BottleParams.count != 0){
             imgBottle.setImageDrawable(getResources().getDrawable(
