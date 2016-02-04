@@ -2,6 +2,7 @@ package net.validcat.st.wb;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,7 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import net.validcat.st.wb.model.Constants;
 import net.validcat.st.wb.support.BottleParams;
+import net.validcat.st.wb.support.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,8 +60,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id){
             case R.id.nav_progress:
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+                if (getApplicationContext() != MainActivity.this){
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                }
+                break;
+            case R.id.nav_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                break;
+            case R.id.nav_give_feedback:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.URI_FEEDBACK)));
                 break;
         }
 
@@ -125,6 +136,7 @@ public class MainActivity extends AppCompatActivity
             BottleParams.count_cancel = BottleParams.COUNT_CANCEL;
             deleteImgFull();
         }
+        saveDate();
     }
 
     private void clear(){
@@ -132,11 +144,13 @@ public class MainActivity extends AppCompatActivity
         tvInfo.setText(BottleParams.EMPTY);
         imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
         deleteImgFull();
+        saveDate();
     }
 
     private void fullBottle() {
         tvInfo.setText(BottleParams.FULL);
         imgFull.setImageResource(R.drawable.ic_full);
+        saveDate();
         Toast.makeText(getApplicationContext(), R.string.full_bottle, Toast.LENGTH_SHORT).show();
     }
 
