@@ -1,7 +1,15 @@
 package net.validcat.st.wb.support;
 
-/**
- * Created by Alex on 04.02.2016.
- */
-public class SettingsActivity {
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+
+import net.validcat.st.wb.R;
+
+public class SettingsActivity extends PreferenceActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.settings);
+    }
 }
