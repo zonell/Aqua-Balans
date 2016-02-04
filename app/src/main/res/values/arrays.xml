@@ -1,2 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string-array name="listArray">
+        <item>@string/every_30m</item>
+        <item>@string/every_1h</item>
+        <item>@string/every_2h</item>
+    </string-array>
+
+    <string-array name="listValues">
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+    </string-array>
+
+    <string-array name="listArrayWeather">
+        <item>@string/cold</item>
+        <item>@string/head</item>
+    </string-array>
+
+    <string-array name="listValuesWeather">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

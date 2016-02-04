@@ -29,7 +29,41 @@
     
     <string name="progress">Progress</string>
     <string name="statistics">Statistics</string>
+    <string name="notification">Reminder</string>
     <string name="news">News</string>
+    <string name="system">System</string>
     <string name="Settings">Settings</string>
     <string name="give_feedback">Give feedback</string>
+
+    
+    <string name="overall">Overall</string>
+    <string name="person_info">Personal Information</string>
+    <string name="weight_age_weight">Weight, age, weight</string>
+    <string name="water_volume">Water volume</string>
+    <string name="normally_drink">the amount of water that you drink</string>
+    <string name="time_reminders">Time reminders</string>
+    <string name="selected_time">Selected time</string>
+    <string name="weight">Weight</string>
+
+    <string name="cold">Cold</string>
+    <string name="head">Heat</string>
+
+    <string name="every_30m">Every 30m</string>
+    <string name="every_1h">Every 1h</string>
+    <string name="every_2h">Every 2h</string>
+    <string name="sound">Sound</string>
+    <string name="enable_sound">Enable sound</string>
+    <string name="off_sound">Turn off the sound</string>
+    <string name="vibration">Vibration</string>
+    <string name="enable_vibration">Enable vibrate</string>
+    <string name="off_vibration">Turn off the vibrate</string>
+    <string name="sound_vibrate">Sound,Vibration</string>
+    <string name="selected_weight">Selected weight</string>
+    <string name="selected_age">Selected you age</string>
+    <string name="age">Age</string>
+    <string name="weather">Weather</string>
+    <string name="notification_settings">Notification settings</string>
+    <string name="selected_weather">Selected weather</string>
+
+
 </resources>
