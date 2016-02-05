@@ -1,24 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="listArray">
+    <string-array name="listArrayNotification">
         <item>@string/every_30m</item>
         <item>@string/every_1h</item>
         <item>@string/every_2h</item>
     </string-array>
 
-    <string-array name="listValues">
+    <string-array name="listValuesNotification">
         <item>30</item>
         <item>60</item>
         <item>120</item>
     </string-array>
 
     <string-array name="listArrayWeather">
+        <item>@string/cool</item>
         <item>@string/cold</item>
         <item>@string/head</item>
+        <item>@string/hot</item>
     </string-array>
 
     <string-array name="listValuesWeather">
-        <item>1</item>
-        <item>2</item>
+        <item>0</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="listArraySport">
+        <item>@string/quiet</item>
+        <item>@string/normal</item>
+        <item>@string/activity</item>
+        <item>@string/sharply</item>
+    </string-array>
+
+    <string-array name="listValuesSport">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>40</item>
+    </string-array>
+
+    <string-array name="listArrayAge">
+        <item>@string/years_10_12</item>
+        <item>@string/years_13_14</item>
+        <item>@string/years_16_18</item>
+        <item>@string/years_18_plus</item>
+    </string-array>
+
+    <string-array name="listValuesAge">
+        <item>70</item>
+        <item>50</item>
+        <item>40</item>
+        <item>30</item>
     </string-array>
 </resources>

@@ -17,12 +17,21 @@
                     android:summary="@string/selected_weight"
                     android:title="@string/weight" />
 
-                <EditTextPreference
+                <ListPreference
+                    android:entries="@array/listArrayAge"
+                    android:entryValues="@array/listValuesAge"
                     android:icon="@drawable/ic_age"
-                    android:inputType="number"
                     android:key="menu_age"
                     android:summary="@string/selected_age"
                     android:title="@string/age" />
+
+                <ListPreference
+                    android:entries="@array/listArraySport"
+                    android:entryValues="@array/listValuesSport"
+                    android:icon="@drawable/ic_sport"
+                    android:key="menu_sport"
+                    android:summary="@string/sport_style"
+                    android:title="@string/sport" />
 
                 <ListPreference
                     android:entries="@array/listArrayWeather"
@@ -36,19 +45,35 @@
 
         </PreferenceScreen>
 
-        <Preference
+        <PreferenceScreen
             android:icon="@drawable/ic_drink"
             android:summary="@string/normally_drink"
-            android:title="@string/water_volume" />
+            android:title="@string/water_volume">
+
+            <EditTextPreference
+                android:icon="@drawable/ic_weight"
+                android:inputType="number"
+                android:key="menu_volume_max"
+                android:summary="@string/max_volume_drink"
+                android:title="@string/max_dose" />
+
+            <EditTextPreference
+                android:icon="@drawable/ic_weight"
+                android:inputType="number"
+                android:key="menu_volume_min"
+                android:summary="@string/min_volume_drink"
+                android:title="@string/min_dose" />
+
+
+        </PreferenceScreen>
 
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/notification">
 
         <ListPreference
-            android:defaultValue="digiGreen"
-            android:entries="@array/listArray"
-            android:entryValues="@array/listValues"
+            android:entries="@array/listArrayNotification"
+            android:entryValues="@array/listValuesNotification"
             android:icon="@drawable/ic_time"
             android:key="menu_notification"
             android:summary="@string/selected_time"
@@ -74,6 +99,20 @@
                     android:summaryOff="@string/off_vibration"
                     android:summaryOn="@string/enable_vibration"
                     android:title="@string/vibration" />
+
+                <EditTextPreference
+                    android:icon="@drawable/ic_time"
+                    android:inputType="number"
+                    android:key="menu_wake_up"
+                    android:summary="@string/wake_up_time"
+                    android:title="@string/awakening" />
+
+                <EditTextPreference
+                    android:icon="@drawable/ic_time"
+                    android:inputType="number"
+                    android:key="menu_sleep"
+                    android:summary="@string/time_to_sleep"
+                    android:title="@string/sleep" />
 
             </PreferenceCategory>
 
