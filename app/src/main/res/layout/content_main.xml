@@ -36,7 +36,7 @@
         fab:fab_addButtonPlusIconColor="@color/white">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn400ml"
+            android:id="@+id/btnMax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClick"
@@ -47,7 +47,7 @@
             fab:fab_title="@string/drink_400ml" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn200ml"
+            android:id="@+id/btnMin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClick"
@@ -98,7 +98,6 @@
         android:layout_alignEnd="@+id/textView"
         android:layout_alignRight="@+id/textView"
         android:layout_below="@+id/textView"
-        android:text="@string/ml0"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <ImageView
@@ -108,5 +107,16 @@
         android:layout_below="@+id/tvInfo"
         android:layout_toLeftOf="@+id/imgBottle"
         android:layout_toStartOf="@+id/imgBottle" />
+
+    <TextView
+        android:id="@+id/percentDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toRightOf="@+id/imgBottle"
+        android:layout_toEndOf="@+id/imgBottle"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp" />
 
 </RelativeLayout>
