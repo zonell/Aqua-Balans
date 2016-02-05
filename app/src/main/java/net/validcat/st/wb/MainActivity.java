@@ -16,19 +16,47 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+
 import net.validcat.st.wb.model.Constants;
 import net.validcat.st.wb.support.BottleParams;
+import net.validcat.st.wb.support.CalculationNormsWater;
 import net.validcat.st.wb.support.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private static final String COUNT_BOTTLE = "count_bottle";
-    private static final String COUNT_CANCEL = "count_cancel";
 
-    private SharedPreferences sPref;
+    private CalculationNormsWater calculationNormsWater;
+
+    private int aquaBalance;
+    private double percentDrink;
+
+    public SharedPreferences sPref;
     private ImageView imgBottle;
     private ImageView imgFull;
     private TextView tvInfo;
+    private TextView tvPercentDrink;
+
+    private FloatingActionButton btnMax;
+    private FloatingActionButton btnMin;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        calculationNormsWater.getPref(this);
+        aquaBalance  = calculationNormsWater.calculationAquaBalance();
+        percentDrink = calculationNormsWater.calculationPercentDrink();
+
+        btnMin.setTitle(getResources().getString(R.string.drink) + " "
+                + calculationNormsWater.drink_volume_min
+                + getResources().getString(R.string.ml));
+
+        btnMax.setTitle(getResources().getString(R.string.drink) + " "
+                + calculationNormsWater.drink_volume_max
+                + getResources().getString(R.string.ml));
+
+        loadDate();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +64,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         initUI();
-        loadDate();
     }
 
     @Override
@@ -60,7 +87,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id){
             case R.id.nav_progress:
-                if (getApplicationContext() != MainActivity.this){
+                if (Constants.COUNT_MENU != Constants.MENU_PROGRESS){
+                    Constants.COUNT_MENU = Constants.MENU_PROGRESS;
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -80,8 +108,14 @@ public class MainActivity extends AppCompatActivity
 
     private void initUI(){
         tvInfo = (TextView) findViewById(R.id.tvInfo);
+        tvPercentDrink = (TextView) findViewById(R.id.percentDrink);
         imgBottle = (ImageView) findViewById(R.id.imgBottle);
         imgFull = (ImageView) findViewById(R.id.imgFull);
+        calculationNormsWater = new CalculationNormsWater();
+
+        btnMin = (FloatingActionButton) findViewById(R.id.btnMin);
+        btnMax = (FloatingActionButton) findViewById(R.id.btnMax);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -97,25 +131,11 @@ public class MainActivity extends AppCompatActivity
 
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn200ml:
-                if (BottleParams.count < BottleParams.bottleImg.length){
-                    fillBottle();
-                } else{
-                    fullBottle();
-                }
-                BottleParams.count_cancel = BottleParams.CANCEL_200_ML;
+            case R.id.btnMin:
+                fill(calculationNormsWater.drink_volume_min, BottleParams.CANCEL_200_ML);
                 break;
-            case R.id.btn400ml:
-                if (BottleParams.count < BottleParams.bottleImg.length
-                        && BottleParams.count != BottleParams.bottleImg.length-1){
-                    BottleParams.count++;
-                    fillBottle();
-                } else if (BottleParams.count == BottleParams.bottleImg.length-1){
-                    fillBottle();
-                } else {
-                    fullBottle();
-                }
-                BottleParams.count_cancel = BottleParams.CANCEL_400_ML;
+            case R.id.btnMax:
+                fill(calculationNormsWater.drink_volume_max, BottleParams.CANCEL_400_ML);
                 break;
             case R.id.btnCancel:
                 cancel();
@@ -126,77 +146,89 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void cancel(){
-        if (BottleParams.count - BottleParams.count_cancel < 0){
-            clear();
-        }
-        else {
-            BottleParams.count = BottleParams.count - BottleParams.count_cancel;
-            fillBottle();
-            BottleParams.count_cancel = BottleParams.COUNT_CANCEL;
-            deleteImgFull();
-        }
-        saveDate();
+    private void fill(int drink_volume_min, int COUNT_CANCEL){
+        fillBottle(drink_volume_min);
+        BottleParams.count_cancel = COUNT_CANCEL;
     }
 
-    private void clear(){
-        BottleParams.count = 0;
-        tvInfo.setText(BottleParams.EMPTY);
-        imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
-        deleteImgFull();
+    private void fillBottle(int volume) {
+        int sum = BottleParams.count_drink += volume;
+        setText();
         saveDate();
+        if (sum > aquaBalance){
+            fullBottle();
+        }
     }
 
     private void fullBottle() {
-        tvInfo.setText(BottleParams.FULL);
-        imgFull.setImageResource(R.drawable.ic_full);
+        setText();
         saveDate();
         Toast.makeText(getApplicationContext(), R.string.full_bottle, Toast.LENGTH_SHORT).show();
     }
 
-    private void fillBottle() {
-        tvInfo.setText(BottleParams.bottleTxt[BottleParams.count]);
-        imgBottle.setImageDrawable(getResources().getDrawable(
-                BottleParams.bottleImg[BottleParams.count]));
-        BottleParams.count++;
-        if (BottleParams.count == BottleParams.bottleImg.length){
-            fullBottle();
+    private void cancel(){
+        switch (BottleParams.count_cancel){
+            case 1:
+                break;
+            case 2:
+                remove(calculationNormsWater.drink_volume_min);
+                break;
+            case 3:
+                remove(calculationNormsWater.drink_volume_max);
+                break;
         }
         saveDate();
+    }
+
+    private void remove(int drink_volume){
+        if (BottleParams.count_drink > 0) {
+            BottleParams.count_drink -= drink_volume;
+            BottleParams.count_cancel = BottleParams.COUNT_CANCEL;
+            setText();
+        }
+        if (BottleParams.count_drink < aquaBalance){
+            deleteImgFull();
+        }
+    }
+
+    private void clear(){
+        BottleParams.count_drink = 0;
+        tvInfo.setText(BottleParams.count_drink + "/" + aquaBalance);
+        imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
+        deleteImgFull();
+        saveDate();
+
     }
 
     public void saveDate(){
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = sPref.edit();
-        editor.putInt(COUNT_BOTTLE, BottleParams.count);
-        editor.putInt(COUNT_CANCEL, BottleParams.count_cancel);
+        editor.putInt(Constants.COUNT_CANCEL, BottleParams.count_cancel);
+        editor.putInt(Constants.COUNT_DRINK, BottleParams.count_drink);
         editor.apply();
     }
 
     public void loadDate(){
         sPref = getPreferences(MODE_PRIVATE);
-        BottleParams.count = sPref.getInt(COUNT_BOTTLE, 0);
-        BottleParams.count_cancel = sPref.getInt(COUNT_CANCEL, BottleParams.COUNT_CANCEL);
+        BottleParams.count_cancel = sPref.getInt(Constants.COUNT_CANCEL, BottleParams.COUNT_CANCEL);
+        BottleParams.count_drink = sPref.getInt(Constants.COUNT_DRINK, BottleParams.count_drink);
 
-        if (BottleParams.count != 0){
-            imgBottle.setImageDrawable(getResources().getDrawable(
-                    BottleParams.bottleImg[BottleParams.count - 1]));
-            tvInfo.setText(BottleParams.bottleTxt[BottleParams.count - 1]);
-        }
-        else {
-            imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
-            tvInfo.setText(R.string.ml0);
-        }
-
-        if (BottleParams.count == BottleParams.bottleTxt.length && BottleParams.count != 0){
-            imgBottle.setImageDrawable(getResources().getDrawable(
-                    BottleParams.bottleImg[BottleParams.count - 1]));
-            imgFull.setImageResource(R.drawable.ic_full);
-            tvInfo.setText(R.string.full);
-        }
+        setText();
     }
 
     private void deleteImgFull(){
         imgFull.setImageDrawable(null);
+    }
+
+    private void setText(){
+        if (BottleParams.count_drink < aquaBalance){
+            tvInfo.setText(BottleParams.count_drink + "/" + aquaBalance);
+            deleteImgFull();
+        }
+        else {
+            tvInfo.setText(getResources().getString(BottleParams.FULL)
+                    + " " + BottleParams.count_drink + "/" + aquaBalance);
+            imgFull.setImageResource(R.drawable.ic_full);
+        }
     }
 }
