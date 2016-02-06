@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/ml_50"
+        android:title="50" />
+    <item
+        android:id="@+id/ml_75"
+        android:title="75" />
+    <item
+        android:id="@+id/ml_100"
+        android:title="100" />
+    <item
+        android:id="@+id/ml_150"
+        android:title="150" />
+    <item
+        android:id="@+id/ml_200"
+        android:title="200" />
+    <item
+        android:id="@+id/ml_250"
+        android:title="250" />
+    <item
+        android:id="@+id/ml_500"
+        android:title="500" />
 </menu>
