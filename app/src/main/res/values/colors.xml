@@ -5,4 +5,8 @@
     <color name="colorPrimaryDark">#0288d1</color>
     <color name="colorAccent">#d102af</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="percent_30">#D32F2F</color>
+    <color name="percent_70">#FBC02D</color>
+    <color name="percent_90">#00C853</color>
 </resources>
