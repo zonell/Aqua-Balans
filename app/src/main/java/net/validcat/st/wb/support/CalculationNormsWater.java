@@ -37,7 +37,7 @@ public class CalculationNormsWater {
         return aquaBalance += percentOfSport + percentOfWeather;
     }
 
-    public double calculationPercentDrink(){
+    public int calculationPercentDrink(){
         return (BottleParams.count_drink * 100) / aquaBalance;
     }
 }
