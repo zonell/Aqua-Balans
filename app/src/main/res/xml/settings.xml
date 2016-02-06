@@ -50,19 +50,23 @@
             android:summary="@string/normally_drink"
             android:title="@string/water_volume">
 
-            <EditTextPreference
-                android:icon="@drawable/ic_weight"
-                android:inputType="number"
-                android:key="menu_volume_max"
-                android:summary="@string/max_volume_drink"
-                android:title="@string/max_dose" />
+            <PreferenceCategory android:title="@string/volume_selection">
 
-            <EditTextPreference
-                android:icon="@drawable/ic_weight"
-                android:inputType="number"
-                android:key="menu_volume_min"
-                android:summary="@string/min_volume_drink"
-                android:title="@string/min_dose" />
+                <EditTextPreference
+                    android:icon="@drawable/ic_water_volume"
+                    android:inputType="number"
+                    android:key="menu_volume_max"
+                    android:summary="@string/max_volume_drink"
+                    android:title="@string/max_dose" />
+
+                <EditTextPreference
+                    android:icon="@drawable/ic_water_volume"
+                    android:inputType="number"
+                    android:key="menu_volume_min"
+                    android:summary="@string/min_volume_drink"
+                    android:title="@string/min_dose" />
+
+            </PreferenceCategory>
 
 
         </PreferenceScreen>
