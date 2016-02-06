@@ -34,7 +34,7 @@
     <string name="vibration">Вибрация</string>
     <string name="water_volume">Объем води</string>
     <string name="weight">Вес</string>
-    <string name="normally_drink">Количество воды, что вы пьете</string>
+    <string name="normally_drink">Введите сколько воды вы будите пить за раз</string>
     <string name="sound_vibrate">Звук, вибрация, время</string>
     <string name="age">Возраст</string>
     <string name="notification_settings">Настройки напоминаний</string>
@@ -58,4 +58,12 @@
     <string name="years_13_14">13 - 14  лет</string>
     <string name="years_16_18">16 - 18 лет</string>
     <string name="years_18_plus">> 18 лет</string>
+    <string name="volume_selection">Выбор объема воды</string>
+    <string name="percent"></string>
+    <string name="max_dose">Максимальная дозировка</string>
+    <string name="min_dose">Минимальная дозировка</string>
+    <string name="max_volume_drink">Введите максимальный объем потребляемой воды</string>
+    <string name="min_volume_drink">Введите минимальный объем потребляемой воды</string>
+    <string name="ml">мл</string>
+    <string name="drink">Выпить</string>
 </resources>

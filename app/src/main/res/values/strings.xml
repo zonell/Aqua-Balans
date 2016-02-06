@@ -3,17 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="you_drink">You drink</string>
 
-    <string name="ml0">0/2L</string>
-    <string name="ml200">200ml/2L</string>
-    <string name="ml400">400ml/2L</string>
-    <string name="ml600">600ml/2L</string>
-    <string name="ml800">800ml/2L</string>
-    <string name="ml1000">1L/2L</string>
-    <string name="ml1200">1.2L/2L</string>
-    <string name="ml1400">1.4L/2L</string>
-    <string name="ml1600">1.6L/2L</string>
-    <string name="ml1800">1.8L/2L</string>
-    <string name="ml2000">2L/2L</string>
     <string name="full">daily rate</string>
 
     <string name="full_bottle">Drunk daily rate</string>
@@ -44,7 +33,7 @@
     <string name="person_info">Personal Information</string>
     <string name="weight_age_weight">Weight, age, weight</string>
     <string name="water_volume">Water volume</string>
-    <string name="normally_drink">the amount of water that you drink</string>
+    <string name="normally_drink">Enter how much water you awake drink at a time</string>
     <string name="time_reminders">Time reminders</string>
     <string name="selected_time">Selected time</string>
     <string name="weight">Weight</string>
@@ -87,9 +76,10 @@
     <string name="years_16_18">15-16 years</string>
     <string name="years_18_plus">> 18 years</string>
     <string name="max_volume_drink">Enter the maximum volume of water consumed</string>
-    <string name="min_volume_drink">enter the minimum volume of water consumed</string>
+    <string name="min_volume_drink">Enter the minimum volume of water consumed</string>
     <string name="max_dose">The maximum dose</string>
     <string name="min_dose">The minimum dose</string>
+    <string name="volume_selection">Selection of volume of water</string>
 
 
 </resources>
