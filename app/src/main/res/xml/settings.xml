@@ -75,14 +75,6 @@
 
     <PreferenceCategory android:title="@string/notification">
 
-        <ListPreference
-            android:entries="@array/listArrayNotification"
-            android:entryValues="@array/listValuesNotification"
-            android:icon="@drawable/ic_time"
-            android:key="menu_notification"
-            android:summary="@string/selected_time"
-            android:title="@string/time_reminders" />
-
         <PreferenceScreen
             android:icon="@drawable/ic_volume"
             android:summary="@string/Settings"
@@ -104,15 +96,23 @@
                     android:summaryOn="@string/enable_vibration"
                     android:title="@string/vibration" />
 
+                <ListPreference
+                    android:entries="@array/listArrayNotification"
+                    android:entryValues="@array/listValuesNotification"
+                    android:icon="@drawable/ic_alarm_push"
+                    android:key="menu_notification"
+                    android:summary="@string/selected_time"
+                    android:title="@string/time_reminders" />
+
                 <EditTextPreference
-                    android:icon="@drawable/ic_time"
+                    android:icon="@drawable/ic_alarm_check"
                     android:inputType="number"
                     android:key="menu_wake_up"
                     android:summary="@string/wake_up_time"
                     android:title="@string/awakening" />
 
                 <EditTextPreference
-                    android:icon="@drawable/ic_time"
+                    android:icon="@drawable/ic_alarm_off"
                     android:inputType="number"
                     android:key="menu_sleep"
                     android:summary="@string/time_to_sleep"
