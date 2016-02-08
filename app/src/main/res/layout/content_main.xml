@@ -15,14 +15,51 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <TextView
+        android:id="@+id/tvDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:text="@string/you_drink" />
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Info"
+        android:layout_below="@+id/tvDrink"
+        android:layout_alignRight="@+id/tvDrink"
+        android:layout_alignEnd="@+id/tvDrink" />
+
+    <ImageView
+        android:id="@+id/imgFull"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvInfo"
+        android:layout_alignRight="@+id/tvInfo"
+        android:layout_alignEnd="@+id/tvInfo" />
+
+    <TextView
+        android:id="@+id/percentDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/fab"
+        android:layout_alignRight="@+id/fab"
+        android:layout_alignTop="@+id/tvDrink"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="50dp"
+        android:textSize="26sp" />
+
     <ImageView
         android:id="@+id/imgBottle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:scaleType="centerInside"
-        android:src="@drawable/empty" />
+        android:src="@drawable/empty"
+        android:layout_alignTop="@+id/fab"
+        android:layout_alignRight="@+id/fab"
+        android:layout_alignEnd="@+id/fab" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/fab"
@@ -81,43 +118,6 @@
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
-        android:layout_toLeftOf="@+id/imgBottle"
-        android:layout_toStartOf="@+id/imgBottle"
-        android:text="@string/you_drink" />
 
-    <TextView
-        android:id="@+id/tvInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_alignRight="@+id/textView"
-        android:layout_below="@+id/textView"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <ImageView
-        android:id="@+id/imgFull"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvInfo"
-        android:layout_toLeftOf="@+id/imgBottle"
-        android:layout_toStartOf="@+id/imgBottle" />
-
-    <TextView
-        android:id="@+id/percentDrink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="26sp"
-        android:text="Percent"
-        android:layout_marginRight="50dp"
-        android:layout_marginEnd="40dp"
-        android:layout_alignTop="@+id/textView"
-        android:layout_alignRight="@+id/fab"
-        android:layout_alignEnd="@+id/fab" />
 
 </RelativeLayout>
