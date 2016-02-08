@@ -141,11 +141,11 @@ public class MainActivity extends AppCompatActivity
                 setTextBtbMin();
                 break;
             case R.id.ml_200:
-                calculationNormsWater.drink_volume_min = 250;
+                calculationNormsWater.drink_volume_min = 200;
                 setTextBtbMin();
                 break;
             case R.id.ml_250:
-                calculationNormsWater.drink_volume_min = 200;
+                calculationNormsWater.drink_volume_min = 250;
                 setTextBtbMin();
                 break;
             case R.id.ml_500:
@@ -187,14 +187,12 @@ public class MainActivity extends AppCompatActivity
 
     private void fill(int drink_volume) {
         fillBottle(drink_volume);
-        BottleParams.count_cancel = drink_volume;
     }
 
     private void fillBottle(int drink_volume) {
+        saveCountDrink();
         int sum = BottleParams.count_drink += drink_volume;
-        getPercent();
         setText();
-        saveDate();
         if (sum > BottleParams.aqua_balance) {
             fullBottle();
         }
@@ -202,55 +200,46 @@ public class MainActivity extends AppCompatActivity
 
     private void fullBottle() {
         setText();
-        saveDate();
         Toast.makeText(getApplicationContext(), R.string.full_bottle, Toast.LENGTH_SHORT).show();
     }
 
     private void cancel() {
-        if (BottleParams.count_cancel != BottleParams.COUNT_CANCEL) {
-            remove(BottleParams.count_cancel);
-        }
-        saveDate();
-    }
-
-    private void remove(int drink_volume) {
-        if (BottleParams.count_drink > 0) {
-            BottleParams.count_drink -= drink_volume;
-            BottleParams.count_cancel = BottleParams.COUNT_CANCEL;
-            getPercent();
-            setText();
-        }
-        if (BottleParams.count_drink < BottleParams.aqua_balance) {
-            deleteImgFull();
-        }
+        loadCountDrink();
+        setText();
     }
 
     private void clear() {
-        BottleParams.count_drink = 0;
-        BottleParams.percent_drink = 0;
+        saveCountDrink();
+        BottleParams.count_drink = BottleParams.EMPTY;
+        BottleParams.percent_drink = BottleParams.EMPTY;
         imgBottle.setImageDrawable(getResources().getDrawable(R.drawable.empty));
         setText();
-        deleteImgFull();
-        saveDate();
     }
 
     public void saveDate() {
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = sPref.edit();
-        editor.putInt(Constants.COUNT_CANCEL, BottleParams.count_cancel);
         editor.putInt(Constants.COUNT_DRINK, BottleParams.count_drink);
-        editor.putInt(Constants.DRINK_MIN, calculationNormsWater.drink_volume_min);
-        editor.putInt(Constants.DRINK_MAX, calculationNormsWater.drink_volume_max);
+//        editor.putInt(Constants.DRINK_MIN, calculationNormsWater.drink_volume_min);
         editor.apply();
+    }
+
+    public void saveCountDrink(){
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = sPref.edit();
+        editor.putInt(Constants.COUNT_CANCEL, BottleParams.count_drink);
+        editor.apply();
+    }
+
+    public void loadCountDrink(){
+        sPref = getPreferences(MODE_PRIVATE);
+        BottleParams.count_drink = sPref.getInt(Constants.COUNT_CANCEL, BottleParams.count_drink);
     }
 
     public void loadDate() {
         sPref = getPreferences(MODE_PRIVATE);
-        BottleParams.count_cancel = sPref.getInt(Constants.COUNT_CANCEL, BottleParams.COUNT_CANCEL);
         BottleParams.count_drink = sPref.getInt(Constants.COUNT_DRINK, BottleParams.count_drink);
-        calculationNormsWater.drink_volume_min = sPref.getInt(Constants.DRINK_MIN, calculationNormsWater.drink_volume_min);
-        calculationNormsWater.drink_volume_max = sPref.getInt(Constants.DRINK_MAX, calculationNormsWater.drink_volume_max);
-        getPercent();
+//        calculationNormsWater.drink_volume_min = sPref.getInt(Constants.DRINK_MIN, calculationNormsWater.drink_volume_min);
         setText();
     }
 
@@ -262,10 +251,6 @@ public class MainActivity extends AppCompatActivity
         BottleParams.aqua_balance = calculationNormsWater.calculationAquaBalance();
     }
 
-    private void getPercent() {
-        BottleParams.percent_drink = calculationNormsWater.calculationPercentDrink();
-    }
-
     private void setText() {
         if (BottleParams.count_drink < BottleParams.aqua_balance) {
             tvInfo.setText(BottleParams.count_drink + "/" + BottleParams.aqua_balance);
@@ -275,6 +260,8 @@ public class MainActivity extends AppCompatActivity
                     + BottleParams.count_drink + "/" + BottleParams.aqua_balance);
             imgFull.setImageResource(R.drawable.ic_full);
         }
+
+        getPercent();
 
         if (BottleParams.percent_drink < 30){
             tvPercentDrink.setTextColor(getResources().getColor(R.color.percent_30));
@@ -290,15 +277,14 @@ public class MainActivity extends AppCompatActivity
                 setPercent();
             }
         }
+        saveDate();
+    }
+
+    private void getPercent() {
+        BottleParams.percent_drink = calculationNormsWater.calculationPercentDrink();
     }
 
     private void setPercent(){
         tvPercentDrink.setText("" + BottleParams.percent_drink + "%");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        saveDate();
     }
 }
