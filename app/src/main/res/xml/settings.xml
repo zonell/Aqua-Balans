@@ -73,55 +73,55 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/notification">
+    <!--<PreferenceCategory android:title="@string/notification">-->
 
-        <PreferenceScreen
-            android:icon="@drawable/ic_volume"
-            android:summary="@string/Settings"
-            android:title="@string/sound_vibrate">
+        <!--<PreferenceScreen-->
+            <!--android:icon="@drawable/ic_volume"-->
+            <!--android:summary="@string/Settings"-->
+            <!--android:title="@string/sound_vibrate">-->
 
-            <PreferenceCategory android:title="@string/notification_settings">
+            <!--<PreferenceCategory android:title="@string/notification_settings">-->
 
-                <CheckBoxPreference
-                    android:icon="@drawable/ic_bell"
-                    android:key="menu_sound"
-                    android:summaryOff="@string/off_sound"
-                    android:summaryOn="@string/enable_sound"
-                    android:title="@string/sound" />
+                <!--<CheckBoxPreference-->
+                    <!--android:icon="@drawable/ic_bell"-->
+                    <!--android:key="menu_sound"-->
+                    <!--android:summaryOff="@string/off_sound"-->
+                    <!--android:summaryOn="@string/enable_sound"-->
+                    <!--android:title="@string/sound" />-->
 
-                <CheckBoxPreference
-                    android:icon="@drawable/ic_vibrate"
-                    android:key="menu_vibrate"
-                    android:summaryOff="@string/off_vibration"
-                    android:summaryOn="@string/enable_vibration"
-                    android:title="@string/vibration" />
+                <!--<CheckBoxPreference-->
+                    <!--android:icon="@drawable/ic_vibrate"-->
+                    <!--android:key="menu_vibrate"-->
+                    <!--android:summaryOff="@string/off_vibration"-->
+                    <!--android:summaryOn="@string/enable_vibration"-->
+                    <!--android:title="@string/vibration" />-->
 
-                <ListPreference
-                    android:entries="@array/listArrayNotification"
-                    android:entryValues="@array/listValuesNotification"
-                    android:icon="@drawable/ic_alarm_push"
-                    android:key="menu_notification"
-                    android:summary="@string/selected_time"
-                    android:title="@string/time_reminders" />
+                <!--<ListPreference-->
+                    <!--android:entries="@array/listArrayNotification"-->
+                    <!--android:entryValues="@array/listValuesNotification"-->
+                    <!--android:icon="@drawable/ic_alarm_push"-->
+                    <!--android:key="menu_notification"-->
+                    <!--android:summary="@string/selected_time"-->
+                    <!--android:title="@string/time_reminders" />-->
 
-                <EditTextPreference
-                    android:icon="@drawable/ic_alarm_check"
-                    android:inputType="number"
-                    android:key="menu_wake_up"
-                    android:summary="@string/wake_up_time"
-                    android:title="@string/awakening" />
+                <!--<EditTextPreference-->
+                    <!--android:icon="@drawable/ic_alarm_check"-->
+                    <!--android:inputType="number"-->
+                    <!--android:key="menu_wake_up"-->
+                    <!--android:summary="@string/wake_up_time"-->
+                    <!--android:title="@string/awakening" />-->
 
-                <EditTextPreference
-                    android:icon="@drawable/ic_alarm_off"
-                    android:inputType="number"
-                    android:key="menu_sleep"
-                    android:summary="@string/time_to_sleep"
-                    android:title="@string/sleep" />
+                <!--<EditTextPreference-->
+                    <!--android:icon="@drawable/ic_alarm_off"-->
+                    <!--android:inputType="number"-->
+                    <!--android:key="menu_sleep"-->
+                    <!--android:summary="@string/time_to_sleep"-->
+                    <!--android:title="@string/sleep" />-->
 
-            </PreferenceCategory>
+            <!--</PreferenceCategory>-->
 
-        </PreferenceScreen>
+        <!--</PreferenceScreen>-->
 
-    </PreferenceCategory>
+    <!--</PreferenceCategory>-->
 
 </PreferenceScreen>

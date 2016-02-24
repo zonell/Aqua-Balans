@@ -7,14 +7,14 @@
             android:icon="@drawable/ic_progress"
             android:title="@string/progress"
             android:checked="true"/>
-        <item
-            android:id="@+id/nav_statistics"
-            android:icon="@drawable/ic_statistics"
-            android:title="@string/statistics" />
-        <item
-            android:id="@+id/nav_notification"
-            android:icon="@drawable/ic_notification"
-            android:title="@string/notification" />
+        <!--<item-->
+            <!--android:id="@+id/nav_statistics"-->
+            <!--android:icon="@drawable/ic_statistics"-->
+            <!--android:title="@string/statistics" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_notification"-->
+            <!--android:icon="@drawable/ic_notification"-->
+            <!--android:title="@string/notification" />-->
     </group>
 
     <item android:title="@string/system">
