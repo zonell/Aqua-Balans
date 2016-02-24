@@ -15,6 +15,23 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <ImageView
+        android:id="@+id/imgWater"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/water" />
+
+    <ImageView
+        android:id="@+id/imgBottle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:src="@drawable/empty"
+        android:layout_alignTop="@+id/tvDrink"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:id="@+id/tvDrink"
         android:layout_width="wrap_content"
@@ -28,50 +45,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Info"
+        android:layout_below="@+id/tvDailyRate"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tvDailyRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Info"
         android:layout_below="@+id/tvDrink"
-        android:layout_alignRight="@+id/tvDrink"
-        android:layout_alignEnd="@+id/tvDrink" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/imgFull"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvInfo"
+        android:layout_alignEnd="@+id/tvInfo"
         android:layout_alignRight="@+id/tvInfo"
-        android:layout_alignEnd="@+id/tvInfo" />
+        android:layout_below="@+id/tvInfo" />
 
     <TextView
         android:id="@+id/percentDrink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/fab"
-        android:layout_alignRight="@+id/fab"
-        android:layout_alignTop="@+id/tvDrink"
-        android:layout_marginEnd="10dp"
         android:text="100%"
-        android:layout_marginRight="50dp"
-        android:textSize="26sp" />
-
-    <ImageView
-        android:id="@+id/imgBottle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerInside"
-        android:src="@drawable/empty"
-        android:layout_alignTop="@+id/fab"
-        android:layout_alignRight="@+id/fab"
-        android:layout_alignEnd="@+id/fab" />
+        android:textSize="26sp"
+        android:layout_alignTop="@+id/imgBottle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         app:fab_labelStyle="@style/menu_label_style"
         fab:fab_addButtonColorNormal="@color/colorAccent"
-        fab:fab_addButtonPlusIconColor="@color/white">
+        fab:fab_addButtonPlusIconColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnMax"
@@ -118,7 +132,6 @@
             fab:fab_title="@string/clear" />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
-
 
 
 </RelativeLayout>
