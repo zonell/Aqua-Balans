@@ -9,6 +9,18 @@ public class Constants {
     public static final String DRINK_MIN = "drink_volume_min";
     public static final String DRINK_MAX = "drink_volume_max";
 
+    public static final String WIDTH = "width";
+    public static final String HEIGHT = "height";
+    public static final String WIDTH_RL = "width_rl";
+
+    public static double PERCENT = 100;
+    public static double PERCENT_5 = 0.05;
+    public static double PERCENT_15 = 0.15;
+    public static double PERCENT_25 = 0.25;
+    public static double PERCENT_35 = 0.35;
+
+    public static boolean FIRST = true;
+
     public static int COUNT_MENU = 1;
     public static final  int MENU_PROGRESS = 1;
     public static final  int MENU_STASTIC = 2;

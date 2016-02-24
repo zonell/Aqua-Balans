@@ -31,7 +31,7 @@
     
     <string name="overall">Overall</string>
     <string name="person_info">Personal Information</string>
-    <string name="weight_age_weight">Weight, age, weight</string>
+    <string name="weight_age_weight">Weight, age, sport, weather</string>
     <string name="water_volume">Water volume</string>
     <string name="normally_drink">Enter how much water you awake drink at a time</string>
     <string name="time_reminders">Time reminders</string>
