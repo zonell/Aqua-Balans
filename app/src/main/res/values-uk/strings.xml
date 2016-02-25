@@ -15,7 +15,7 @@
     <string name="statistics">Статистика</string>
     <string name="give_feedback">Залишити вiдгук</string>
     <string name="Settings">Налаштування</string>
-    <string name="notification">Нагдування</string>
+    <string name="notification">Нагадування</string>
     <string name="overall">Загальна</string>
     <string name="person_info">Персональнi даннi</string>
     <string name="weight_age_weight">Вага, вiк, спорт, погода</string>
@@ -23,7 +23,7 @@
     <string name="cold">Холодно (+5%)</string>
     <string name="enable_sound">Звук увiмкнутий</string>
     <string name="enable_vibration">Звук вимкнутий</string>
-    <string name="every_1h">Кожну годыну</string>
+    <string name="every_1h">Кожну годину</string>
     <string name="every_2h">Кожнi 2 години</string>
     <string name="every_30m">Кожнi 30 хвилин</string>
     <string name="head">Тепло (+10%)</string>
@@ -33,9 +33,9 @@
     <string name="selected_time">Вибрати час нагадування</string>
     <string name="time_reminders">Час нагадування</string>
     <string name="vibration">Вiбрацiя</string>
-    <string name="water_volume">Обем води</string>
+    <string name="water_volume">Кiлькiсть води</string>
     <string name="weight">Вага</string>
-    <string name="normally_drink">Введіть скільки води ви будите пити за раз</string>
+    <string name="normally_drink">Введіть, скільки води ви будете пити за раз</string>
     <string name="sound_vibrate">Звук, вiбрацiя, час</string>
     <string name="age">Вiк</string>
     <string name="notification_settings">Налаштування нагадувань</string>
@@ -45,9 +45,9 @@
     <string name="selected_weather">Виберiть погоду для коректування норми вживаної води</string>
     <string name="activity">Активний (+20%)</string>
     <string name="cool">Прохолодно (+0%)</string>
-    <string name="hot">Жарко (+15%)</string>
+    <string name="hot">Спекотно (+15%)</string>
     <string name="normal">Звичайний (+10%)</string>
-    <string name="quiet">Тихихий (+0%)</string>
+    <string name="quiet">Тихий (+0%)</string>
     <string name="sharply">Різкий  (+40%)</string>
     <string name="sport">Спорт</string>
     <string name="sport_style">Виберiти ваш образ життя для коректування норми вживаної води</string>
