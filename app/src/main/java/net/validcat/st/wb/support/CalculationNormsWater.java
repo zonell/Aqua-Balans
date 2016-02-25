@@ -21,12 +21,22 @@ public class CalculationNormsWater {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 
         weightPreference = Integer.parseInt(preferences.getString("menu_weight", "70"));
+        if (weightPreference == 0){
+            weightPreference = 70;
+        }
         agePreference = Integer.parseInt(preferences.getString("menu_age", "33"));
         sportPreference = Integer.parseInt(preferences.getString("menu_sport", "10"));
         weatherPreference = Integer.parseInt(preferences.getString("menu_weather", "5"));
 
         drink_volume_min = Integer.parseInt(preferences.getString("menu_volume_min", "200"));
         drink_volume_max = Integer.parseInt(preferences.getString("menu_volume_max", "400"));
+
+        if (drink_volume_min > 1000){
+            drink_volume_min = 1000;
+        }
+        if (drink_volume_max > 1000) {
+            drink_volume_max = 1000;
+        }
     }
 
     public int calculationAquaBalance(){
