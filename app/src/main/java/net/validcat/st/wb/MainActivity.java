@@ -324,8 +324,8 @@ public class MainActivity extends AppCompatActivity
             getViewProperty(imgBottle, container);
         }
 
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width/2, height);
-        layoutParams.setMargins(widthRL / 4, getWidthWater(), 0, 0);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((width/2), height);
+        layoutParams.setMargins((widthRL / 4) + 10, getWidthWater(), 0, 0);
 
         imgWater.setLayoutParams(layoutParams);
 
