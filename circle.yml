@@ -1,10 +1,10 @@
 general:
     artifacts:
-        - /home/user/app/build/
+        - /home/user/app/build/ ./gradlew dependencies
 
 machine:
     environment:
-        ANDROID_HOME: /home/user/Android/Sdk
+        ANDROID_HOME: /home/user/Android/Sdk ./gradlew dependencies
 
 dependencies:
     override:
