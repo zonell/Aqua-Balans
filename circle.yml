@@ -3,7 +3,9 @@ general:
         - /home/ubuntu/your-app-name/app/build/outputs/apk/
 
 machine:
-    environment:
+java:
+    version: oraclejdk8
+environment:
         ANDROID_HOME: local/Android/Sdk
 
 dependencies:
