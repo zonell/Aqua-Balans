@@ -3,9 +3,7 @@ general:
         - /home/user/app/build/
 
 machine:
-java:
-    version: oraclejdk8
-environment:
+    environment:
         ANDROID_HOME: /home/user/Android/Sdk
 
 dependencies:
