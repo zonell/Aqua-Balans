@@ -6,15 +6,10 @@ general:
     artifacts:
         - /home/user/app/build/
 
-machine:
-    environment:
-        ANDROID_HOME: /home/user/Android/Sdk ./gradlew dependencies
-
 dependencies:
     override:
         - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-19.1.0,android-19,extra-google-m2repository,extra-google-google_play_services,extra-android-support
-        - ANDROID_HOME=/home/user/Android/Sdk ./gradlew dependencies ./gradlew dependencies
-
+        
 test:
     override:
         - (./gradlew assemble):
