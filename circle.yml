@@ -1,4 +1,4 @@
-general:
+/* general:
     artifacts:
         - /home/ubuntu/your-app-name/app/build/outputs/apk/
 
@@ -17,3 +17,16 @@ test:
     override:
         - (./gradlew assemble):
          timeout: 360
+*/
+
+deployment:
+  production: # just a label; label names are completely up to you
+    branch: master
+    commands:
+      - ./gradlew publishApkRelease
+        -Dorg.gradle.project.track=production
+  beta:
+    branch: develop
+    commands:
+      - ./gradlew publishApkRelease
+        -Dorg.gradle.project.track=beta
