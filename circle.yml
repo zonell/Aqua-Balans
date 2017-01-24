@@ -1,13 +1,3 @@
-general:
-  artifacts:
-    -/home/**testFolderName**/connected
-
-machine:
-  environment:
-    ANDROID_HOME: /home/user/Android/Sdk
-  java:
-    version: oraclejdk8
-
 dependencies:
   cache_directories:
     - ~/.android
