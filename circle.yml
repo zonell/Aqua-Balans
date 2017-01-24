@@ -1,10 +1,6 @@
-general:
-  artifacts:
-    -/home/connected
-
 machine:
   environment:
-    ANDROID_HOME: /home/ubuntu/android
+    ANDROID_HOME: /home/Android/Sdk
   java:
     version: oraclejdk7
 
