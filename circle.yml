@@ -12,10 +12,12 @@ dependencies:
     - (echo "Downloading Android SDK v19 now!")
     - (source scripts/environmentSetup.sh && getAndroidSDK)
 
-test:
-  pre:
-    - $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window:
-      background: true
+test:  pre:    
+# start the emulator    
+- emulator -avd circleci-android22 -no-audio -no-window:        
+      background: true        
+      parallel: true
+      
     - (./gradlew assembleDebug):
       timeout: 1200
     - (./gradlew assembleDebugTest):
