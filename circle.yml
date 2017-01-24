@@ -1,26 +1,30 @@
+general:
+  artifacts:
+    -/home/**testFolderName**/connected
+
+machine:
+  environment:
+    ANDROID_HOME: /home/user/Android/Sdk
+  java:
+    version: oraclejdk6
+
 dependencies:
   cache_directories:
-    - ~/.gradle
     - ~/.android
-    - ~/.infer
-       
+    - ~/android
   override:
-    - echo y | android update sdk --no-ui --filter "android-22,build-tools-22.0.1"
-    - echo y | android update sdk --no-ui --all --filter "platform-tools, tools"
-    - echo y | android update sdk --no-ui --all --filter "android-22, build-tools-22.0.1"
-    - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
-    - echo y | android update sdk --no-ui --all --filter "extra-android-support"
-    
-    test:
+    - (echo "Downloading Android SDK v19 now!")
+    - (source scripts/environmentSetup.sh && getAndroidSDK)
+
+test:
+  pre:
+    - $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window:
+      background: true
+    - (./gradlew assembleDebug):
+      timeout: 1200
+    - (./gradlew assembleDebugTest):
+      timeout: 1200
+    - (source scripts/environmentSetup.sh && waitForAVD)
   override:
-    # start the emulator
-    - emulator -avd circleci-android22 -no-audio -no-window:
-        background: true
-        parallel: true
-    # wait for it to have booted
-    - circle-android wait-for-boot
-    # unlock the emulator screen
-    - sleep 30
-    - adb shell input keyevent 82
-    # run tests  against the emulator.
-    - ./gradlew connectedAndroidTest -PdisablePreDex
+    - (echo "Running JUnit tests!")
+    - (./gradlew connectedAndroidTest)
