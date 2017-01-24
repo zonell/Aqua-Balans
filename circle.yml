@@ -1,20 +1,12 @@
-dependencies:
-  cache_directories:
-    - ~/.android
-    - ~/android
-  override:
-    - (echo "Downloading Android SDK v19 now!")
-    - (source scripts/environmentSetup.sh && getAndroidSDK)
+general:
+    artifacts:
+        - /home/ubuntu/your-app-name/app/build/outputs/apk/
 
-test:
-  pre:
-    - $ANDROID_HOME /tools/emulator -avd testAVD -no-skin -no-audio -no-window:
-      background: true
-    - (./gradlew assembleDebug):
-      timeout: 1200
-    - (./gradlew assembleDebugTest):
-      timeout: 1200
-    - (source scripts/environmentSetup.sh && waitForAVD)
-  override:
-    - (echo "Running JUnit tests!")
-    - (./gradlew connectedAndroidTest)
+machine:
+    environment:
+        ANDROID_HOME: /home/user/Android/Sdk
+
+dependencies:
+    override:
+        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-19.1.0,android-19,extra-google-m2repository,extra-google-google_play_services,extra-android-support
+        - ANDROID_HOME=/home/user/Android/Sdk ./gradlew dependencies
