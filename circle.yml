@@ -3,15 +3,7 @@ dependencies:
     - ~/.gradle
     - ~/.android
     - ~/.infer
-  pre:
-    - |
-      mkdir -p ~/.infer
-      if [ ! -e ~/.infer/infer-linux64-v0.1.0/infer/infer/bin ]; then 
-        cd ~/.infer && wget https://github.com/facebook/infer/releases/download/v0.1.0/infer-linux64-v0.1.0.tar.xz
-        tar xf infer-linux64-v0.1.0.tar.xz
-        rm infer-linux64-v0.1.0.tar.xz
-      fi  
-      
+       
   override:
     - echo y | android update sdk --no-ui --filter "android-22,build-tools-22.0.1"
     - echo y | android update sdk --no-ui --all --filter "platform-tools, tools"
