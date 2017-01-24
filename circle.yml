@@ -1,11 +1,20 @@
-#
-# Build configuration for Circle CI
-#
-
-general:
-    artifacts:
-        - /home/user/app/build/
-
 dependencies:
-    override:
-        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-19.1.0,android-19,extra-google-m2repository,extra-google-google_play_services,extra-android-support
+  cache_directories:
+    - ~/.gradle
+    - ~/.android
+    - ~/.infer
+  pre:
+    - |
+      mkdir -p ~/.infer
+      if [ ! -e ~/.infer/infer-linux64-v0.1.0/infer/infer/bin ]; then 
+        cd ~/.infer && wget https://github.com/facebook/infer/releases/download/v0.1.0/infer-linux64-v0.1.0.tar.xz
+        tar xf infer-linux64-v0.1.0.tar.xz
+        rm infer-linux64-v0.1.0.tar.xz
+      fi  
+      
+  override:
+    - echo y | android update sdk --no-ui --filter "android-22,build-tools-22.0.1"
+    - echo y | android update sdk --no-ui --all --filter "platform-tools, tools"
+    - echo y | android update sdk --no-ui --all --filter "android-22, build-tools-22.0.1"
+    - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
+    - echo y | android update sdk --no-ui --all --filter "extra-android-support"
