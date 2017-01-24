@@ -12,6 +12,31 @@ buildscript {
     }
 }
 
+android {
+  compileSdkVersion 19
+  buildToolsVersion "21.1.2"
+
+  defaultConfig {
+    applicationId "com.example.originate"
+    minSdkVersion 14
+    targetSdkVersion 19
+    versionCode 1
+    versionName "1.0"
+
+    testApplicationId "com.example.originate.tests"
+    testInstrumentationRunner "android.test.InstrumentationTestRunner"
+  }
+
+  buildTypes {
+    debug {
+        debuggable true
+    }
+    release {
+        debuggable false
+    }
+  }
+}
+
 allprojects {
     repositories {
         jcenter()
