@@ -6,7 +6,7 @@ machine:
   environment:
     ANDROID_HOME: /home/user/Android/Sdk
   java:
-    version: oraclejdk6
+    version: oraclejdk8
 
 dependencies:
   cache_directories:
