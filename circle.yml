@@ -12,8 +12,9 @@ dependencies:
     - (echo "Downloading Android SDK v19 now!")
     - (source scripts/environmentSetup.sh && getAndroidSDK)
 
-test:  pre:    
-# start the emulator    
+test:  
+pre:    
+  
 - emulator -avd circleci-android22 -no-audio -no-window:        
       background: true        
       parallel: true
