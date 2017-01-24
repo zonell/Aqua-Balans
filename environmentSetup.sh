@@ -1,33 +1,23 @@
-general:
-  artifacts:
-    -/home/ubuntu/**repo_name**/build/outputs/reports/**testFolderName**/connected
+#!/bin/bash
 
-machine:
-  environment:
-    ANDROID_HOME: /home/ubuntu/android
-  java:
-    version: oraclejdk6
+# Fix the CircleCI path
+function getAndroidSDK(){
+  export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
 
-dependencies:
-  cache_directories:
-    - ~/.android
-    - ~/android
-  override:
-    - (echo "Downloading Android SDK v19 now!")
-    - (source scripts/environmentSetup.sh && getAndroidSDK)
+  DEPS="$ANDROID_HOME/installed-dependencies"
 
-#test:
- # pre:
- #   - $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window:
-#      background: true
- #   - (./gradlew assembleDebug):
-  #    timeout: 1200
-   # - (./gradlew assembleDebugTest):
-   #   timeout: 1200
-   # - (source scripts/environmentSetup.sh && waitForAVD)
- # override:
-  #  - (echo "Running JUnit tests!")
-   # - (./gradlew connectedAndroidTest)
+  if [ ! -e $DEPS ]; then
+    cp -r /usr/local/android-sdk-linux $ANDROID_HOME &&
+    echo y | android update sdk -u -a -t android-19 &&
+    echo y | android update sdk -u -a -t platform-tools &&
+    echo y | android update sdk -u -a -t build-tools-21.1.2 &&
+    echo y | android update sdk -u -a -t sys-img-x86-android-19 &&
+    #echo y | android update sdk -u -a -t addon-google_apis-google-19 &&
+    echo no | android create avd -n testAVD -f -t android-19 --abi default/x86 &&
+    touch $DEPS
+  fi
+}
+
 function waitAVD {
     (
     local bootanim=""
