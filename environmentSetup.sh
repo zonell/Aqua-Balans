@@ -28,3 +28,14 @@ dependencies:
  # override:
   #  - (echo "Running JUnit tests!")
    # - (./gradlew connectedAndroidTest)
+function waitAVD {
+    (
+    local bootanim=""
+    export PATH=$(dirname $(dirname $(which android)))/platform-tools:$PATH
+    until [[ "$bootanim" =~ "stopped" ]]; do
+      sleep 5
+      bootanim=$(adb -e shell getprop init.svc.bootanim 2>&1)
+      echo "emulator status=$bootanim"
+    done
+    )
+}
