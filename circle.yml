@@ -8,7 +8,7 @@ dependencies:
 
 test:
   pre:
-    - $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window:
+    - $ANDROID_HOME /tools/emulator -avd testAVD -no-skin -no-audio -no-window:
       background: true
     - (./gradlew assembleDebug):
       timeout: 1200
