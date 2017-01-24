@@ -5,7 +5,7 @@ pre:
 
 machine: 
 java: 
-version: oraclejdk8
+version: oraclejdk7
 
 test: 
 pre: 
@@ -13,27 +13,6 @@ pre:
 - emulator -avd circleci-android22 -no-audio -no-window: 
 background: true 
 parallel: true 
-override: 
-# Build the project (including running unit tests) and run Android instrumentation testsa 
-- ./gradlew build :mobile:connectedCheck -x lint -PdisablePreDex —console=plain -
-Dorg.gradle.jvmargs="-Xms512m -Xmx512m" 
-post: 
-# Create directories that will hold different test reports 
-# Here we will collect all xml junit reports 
-- mkdir -p $CIRCLE_TEST_REPORTS/junit/ 
-# Here we will collect TV2Common junit html reports 
-- mkdir -p $CIRCLE_TEST_REPORTS/TV2Common/html/ 
-# Here we will collect mobile junit html reports 
-- mkdir -p $CIRCLE_TEST_REPORTS/mobile/html/ 
-# Find all xml junit reports in the project 
-- find . -type f -iregex ".*/.*test-results/*/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \; 
-# Copy DEBUG junit html reports to $CIRCLE_TEST_REPORTS/TV2Common/html folder 
-- cp -r libProjects/TV2Common/build/reports/tests/developmentDebug/* 
-$CIRCLE_TEST_REPORTS/TV2Common/html 
-# Copy DEBUG junit html reports to $CIRCLE_TEST_REPORTS/mobile/html folder 
-- cp -r mobile/build/reports/androidTests/connected/* $CIRCLE_TEST_REPORTS/mobile/html 
-# Copy all apks to artifcat directory 
-- cp -r mobile/build/outputs/apk/* $CIRCLE_ARTIFACTS
 
 deployment: 
 develop: 
