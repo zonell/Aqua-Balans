@@ -7,7 +7,7 @@ dependencies:
     - ~/.android
     - ~/android
   override:
-    - ./install-dependencies.sh
+    - ./environmentSetup.sh
 
 test:
   override:
