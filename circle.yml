@@ -1,14 +1,10 @@
-machine:
-  environment:
-    ANDROID_HOME: /home/Android/Sdk
-
-dependencies:
-  cache_directories:
-    - ~/.android
-    - ~/android
+est:
   override:
-    - ./environmentSetup.sh
-
-test:
-  override:
-    - ./gradlew build
+    # start the emulator
+    - emulator -avd circleci-android24 -no-window:
+        background: true
+        parallel: true
+    # wait for it to have booted
+    - circle-android wait-for-boot
+    # run tests  against the emulator.
+    - ./gradlew connectedAndroidTest
